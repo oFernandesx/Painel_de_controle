@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baff's</title>
+    <link rel="icon" type="image/png" href="img/Design-sem-nome-1-3.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Droid Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="">
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden transition-opacity z-30"></div>
+
+    <div class="bg-[#9A252A] h-[70px] flex items-center justify-between p-4 sm:p-12">
+        <button id="openBtn" class="text-[#FDD223] cursor-pointer">
+            <i class="bi bi-list text-4xl sm:text-5xl"></i>
+        </button>
+
+        <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-[#9A252A] shadow-lg -translate-x-full transition-transform duration-300 ease-in-out z-40 p-5">
+            <button id="closeBtn" class="absolute top-4 right-4 text-white">&times;</button>
+            <img src="img/Design-sem-nome-1-3.webp" alt="">
+            <ul>
+              <!-- MENU -->
+                <li class="mb-2"><a href="index.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">DASHBOARD</a></li>
+                <li class="mb-2"><a href="clientes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">CLIENTES</a></li>
+                <li class="mb-2"><a href="produtos.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">PRODUTOS</a></li>
+                <li class="mb-2"><a href="relatório.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">RELATÓRIO</a></li>
+                <li class="mb-2"><a href="avaliacoes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">AVALIAÇÕES</a></li>
+            </ul>
+        </div>
+
+        <input type="text" placeholder="PESQUISAR" class="sm:block w-[60%] lg:w-[900px] h-[40px] border-none outline-none rounded-md bg-[#FDD223] p-3 text-[#9A252A] placeholder:text-[#9A252A] placeholder:border-none placeholder:font-bold">
+
+        <a href=""><img class="h-[40px] sm:h-[55px]" src="img/Group 28.png" alt=""></a>
+    </div>
+    
+    <div class="mb-12 mt-12">
+        <h1 class="text-[48px] font-bold text-[#9A252A] text-center">AVALIAÇÕES</h1>
+    </div>
+
+
+    <div class="flex flex-wrap justify-center gap-20 pb-[100px] ">
+        <!-- AVALIAÇÃO 1 -->
+        <div class="flex items-center justify-center bg-[#9A252A] w-[300px] h-[220px] rounded-[8px] transition-transform duration-300 hover:scale-105" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+          <div class="text-center w-[270px]"> <!-- CENTRALIZANDO O TEXTO -->
+            <div class="flex items-center w-[250px] justify-between"> <!-- LIMITANDO AS INFORMAÇÕES EM 250px -->
+              <img src="img/logo.png" alt="" width="40px"> <!-- IMAGEM DE USUÁRIO -->
+              <div class="items-center w-[250px]">
+                <h1 class="font-bold text-[#FDD844] text-[20px]">João Silva</h1> <!-- NOME DO USUÁRIO -->
+              </div>
+            </div>
+            <hr class="border-[#FDD844] border-t-2 mt-3">
+            <div class="flex items-center justify-center">
+              <img src="img/joao.png" alt="" class="w-[150px] mt-3 mb-3">
+            </div>
+            <div>
+              <!-- AVALIAÇÃO -->
+              <h1 class="text-[#FDD844] text-[12px] text-left font-bold">Atendimento excepcional! Os garçons foram atenciosos, educados e sempre prestativos, trazendo os pedidos com rapidez. Foi uma experiência muito agradável. Recomendo demais!</h1>
+            </div>
+          </div>
+        </div>
+    
+        <!-- AVALIAÇÃO 2 -->
+        <div class="flex items-center justify-center bg-[#9A252A] w-[300px] h-[220px] rounded-[8px] transition-transform duration-300 hover:scale-105" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+          <div class="text-center w-[270px]">
+            <div class="flex items-center w-[250px] justify-between"> <!-- LIMITANDO AS INFORMAÇÕES EM 250px -->
+              <img src="img/logo.png" alt="" width="40px">
+              <div class="items-center w-[250px]">
+                <h1 class="font-bold text-[#FDD844] text-[20px]">Ana Beatriz</h1> <!-- NOME DO USUÁRIO -->
+              </div>
+            </div>
+            <hr class="border-[#FDD844] border-t-2 mt-3">
+            <div class="flex items-center justify-center">
+              <img src="img/ana.png" alt="" class="w-[150px] mt-3 mb-3">
+            </div>
+            <div>
+              <!-- AVALIAÇÃO -->
+              <h1 class="text-[#FDD844] text-[12px] text-left font-bold">O restaurante é bem organizado e limpo, com um ambiente aconchegante e confortável. A decoração é bonita e torna o lugar ainda mais agradável para refeições em família ou com amigos.</h1>
+            </div>
+          </div>
+        </div>
+
+
+        <!-- AVALIAÇÃO 3 -->
+        <div class="flex items-center justify-center bg-[#9A252A] w-[300px] h-[220px] rounded-[8px] transition-transform duration-300 hover:scale-105" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+          <div class="text-center w-[270px]">
+            <div class="flex items-center w-[250px] justify-between"> <!-- LIMITANDO AS INFORMAÇÕES EM 250px -->
+              <img src="img/logo.png" alt="" width="40px">
+              <div class="items-center w-[250px]">
+                <h1 class="font-bold text-[#FDD844] text-[20px]">Robson Malakias</h1> <!-- NOME DO USUÁRIO -->
+              </div>
+            </div>
+            <hr class="border-[#FDD844] border-t-2 mt-3">
+            <div class="flex items-center justify-center">
+              <img src="img/robson.png" alt="" class="w-[150px] mt-3 mb-3">
+            </div>
+            <div>
+              <!-- AVALIAÇÃO -->
+              <h1 class="text-[#FDD844] text-[12px] text-left font-bold">Infelizmente, tive uma experiência ruim. Meu pedido demorou mais de 40 minutos e ainda veio errado. Além disso, os atendentes pareciam um pouco perdidos. A organização precisa melhorar.</h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- AVALIAÇÃO 4 -->
+        <div class="flex items-center justify-center bg-[#9A252A] w-[300px] h-[220px] rounded-[8px] transition-transform duration-300 hover:scale-105" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+          <div class="text-center w-[270px]">
+            <div class="flex items-center w-[250px] justify-between"> <!-- LIMITANDO AS INFORMAÇÕES EM 250px -->
+              <img src="img/logo.png" alt="" width="40px">
+              <div class="items-center w-[250px]">
+                <h1 class="font-bold text-[#FDD844] text-[20px]">Carla Nunes</h1> <!-- NOME DO USUÁRIO -->
+              </div>
+            </div>
+            <hr class="border-[#FDD844] border-t-2 mt-3">
+            <div class="flex items-center justify-center">
+              <img src="img/carla.png" alt="" class="w-[150px] mt-3 mb-3">
+            </div>
+            <div>
+              <!-- AVALIAÇÃO -->
+              <h1 class="text-[#FDD844] text-[12px] text-left font-bold">O ambiente é agradável, e a comida é boa, mas o atendimento poderia ser mais ágil. Meu pedido demorou um pouco além do esperado, e precisei chamar o garçom mais de uma vez.</h1>
+            </div>
+          </div>
+        </div>
+      
+        <!-- AVALIAÇÃO 5 -->
+        <div class="flex items-center justify-center bg-[#9A252A] w-[300px] h-[220px] rounded-[8px] transition-transform duration-300 hover:scale-105" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+          <div class="text-center w-[270px]">
+            <div class="flex items-center w-[250px] justify-between"> <!-- LIMITANDO AS INFORMAÇÕES EM 250px -->
+              <img src="img/logo.png" alt="" width="40px">
+              <div class="items-center w-[250px]">
+                <h1 class="font-bold text-[#FDD844] text-[20px]">Diego Ferreira</h1> <!-- NOME DO USUÁRIO -->
+              </div>
+            </div>
+            <hr class="border-[#FDD844] border-t-2 mt-3">
+            <div class="flex items-center justify-center">
+              <img src="img/diego.png" alt="" class="w-[150px] mt-3 mb-3">
+            </div>
+            <div>
+              <!-- AVALIAÇÃO -->
+              <h1 class="text-[#FDD844] text-[12px] text-left font-bold">A comida chegou fria e demorou bastante para ser servida. O sabor é bom, mas a experiência no geral deixou a desejar. Espero que melhorem o tempo de atendimento.</h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- AVALIAÇÃO 6 -->
+        <div class="flex items-center justify-center bg-[#9A252A] w-[300px] h-[220px] rounded-[8px] transition-transform duration-300 hover:scale-105" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+          <div class="text-center w-[270px]">
+            <div class="flex items-center w-[250px] justify-between"> <!-- LIMITANDO AS INFORMAÇÕES EM 250px -->
+              <img src="img/logo.png" alt="" width="40px">
+              <div class="items-center w-[250px]">
+                <h1 class="font-bold text-[#FDD844] text-[20px]">Renata Alves</h1> <!-- NOME DO USUÁRIO -->   
+              </div>
+            </div>
+            <hr class="border-[#FDD844] border-t-2 mt-3">
+            <div class="flex items-center justify-center">
+              <img src="img/renata.png" alt="" class="w-[150px] mt-3 mb-3">
+            </div>
+            <div>
+              <!-- AVALIAÇÃO -->
+              <h1 class="text-[#FDD844] text-[12px] text-left font-bold">Gostei bastante da comida, tudo muito saboroso! Só acho que poderiam ter mais opções no cardápio e um tempo de espera um pouco menor nos horários de pico.</h1>
+            </div>
+          </div>
+        </div>
+      
+      </div>
+      
+<!-- NAVBAR -->
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const openBtn = document.getElementById("openBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const ctx = document.getElementById('myChart');
+    
+        function openSidebar() {
+            sidebar.classList.remove("-translate-x-full");
+            overlay.classList.remove("hidden");
+        }
+    
+        function closeSidebar() {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        }
+    
+        openBtn.addEventListener("click", openSidebar);
+        closeBtn.addEventListener("click", closeSidebar);
+        overlay.addEventListener("click", closeSidebar);
+    
+        // Espera carregar tudo antes de criar o gráfico
+        document.addEventListener('DOMContentLoaded', function () {
+            const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'];
+            
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Faturamento',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            };
+    
+            const config = {
+                type: 'line',
+                data: data,
+            };
+    
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        });
+    </script>
+
+
+    <footer class="bg-[#FDD223] p-[8px] text-center">
+        <p class="text-[#9A252A] text-xl sm:text-2xl font-bold border-b-2 border-[#9A252A] inline-block ">2025 Copyright: Grupo 1©</p>
+    </footer>
+    
+
+
+</body>
+</html>

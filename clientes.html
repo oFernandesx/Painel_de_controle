@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baff's</title>
+    <link rel="icon" type="image/png" href="img/Design-sem-nome-1-3.webp">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Droid Sans', sans-serif;
+        }
+    </style>
+</head>
+<body class="">
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden transition-opacity z-30"></div>
+
+    
+    <div class="bg-[#9A252A] h-[70px] flex items-center justify-between p-4 sm:p-12">
+        <button id="openBtn" class="text-[#FDD223] cursor-pointer">
+            <i class="bi bi-list text-4xl sm:text-5xl"></i>
+        </button>
+
+        <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-[#9A252A] shadow-lg -translate-x-full transition-transform duration-300 ease-in-out z-40 p-5">
+            <button id="closeBtn" class="absolute top-4 right-4 text-white">&times;</button>
+            <img src="img/Design-sem-nome-1-3.webp" alt="">
+            <ul>
+                <li class="mb-2"><a href="index.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">DASHBOARD</a></li>
+                <li class="mb-2"><a href="clientes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">CLIENTES</a></li>
+                <li class="mb-2"><a href="produtos.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">PRODUTOS</a></li>
+                <li class="mb-2"><a href="relatório.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">RELATÓRIO</a></li>
+                <li class="mb-2"><a href="avaliacoes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">AVALIAÇÕES</a></li>
+            </ul>
+        </div>
+
+        <input type="text" placeholder="PESQUISAR" class="sm:block w-[60%] lg:w-[900px] h-[40px] border-none outline-none rounded-md bg-[#FDD223] p-3 text-[#9A252A] placeholder:text-[#9A252A] placeholder:border-none placeholder:font-bold">
+
+        <a href=""><img class="h-[40px] sm:h-[55px]" src="img/Group 28.png" alt=""></a>
+    </div>
+
+    <div class="mb-12 mt-12 sm:mb-12 sm:mt-12">
+        <h1 class="text-[32px] sm:text-[48px] font-bold text-[#9A252A] text-center">CLIENTES</h1>
+    </div>
+
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 ml-4 mr-4 sm:gap-9 sm:ml-10 sm:mr-10 mb-10 sm:mb-20">
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Gabriel Almeida</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: gabriel.almeida@outlook.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 9277-2292</p>
+        </div>
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Murillo Rodrigues</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: murillo.rodrigues@gmail.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 91265-1273</p>
+        </div>
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Caio Fernandes</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: fernandesocaio@gmail.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 93714-1876</p>
+        </div>
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Matheus V. Gatto</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: matheusviniciusgatto@gmail.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 94392-0488</p>
+        </div>
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Daniel Monteiro</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: danielfonsecamonteiro07@gmail.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 91333-3176</p>
+        </div>
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Daniele Amaral</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: danieleamaral181@gmail.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 96606-0387</p>
+        </div>
+      
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Aline P. Souza</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: alinesouza@outlook.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 96834-9034</p>
+        </div>
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">João Vitor Santos</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: joao.vsantos@gmail.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 94788-2344</p>
+        </div>
+
+        <div class="p-1 bg-[#9A252A] rounded-lg items-center gap-3 pl-4 pr-4 pb-2 transition-transform duration-300 hover:scale-105">
+          <div class="flex p-3 bg-[#9A252A] rounded-lg items-center">
+            <i class="bi bi-person-circle text-5xl sm:text-6xl mr-4 text-[#FDD223]"></i>
+            <div class="p-1">
+              <h1 class="text-[#FDD223] text-2xl sm:text-3xl font-bold">Luane Ventura</h1>
+            </div>
+          </div>
+          <div class="bg-[#FDD223] rounded-xl h-0.5 w-full mb-2 mt-1"></div>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Email: luaneventura@gmail.com</p>
+          <p class="text-[#FDD223] font-bold text-sm sm:text-base">Número de telefone: (11) 97823-4907</p>
+        </div>
+      
+      </div>
+
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const openBtn = document.getElementById("openBtn");
+        const closeBtn = document.getElementById("closeBtn");
+        const ctx = document.getElementById('myChart');
+
+        function openSidebar() {
+            sidebar.classList.remove("-translate-x-full");
+            overlay.classList.remove("hidden");
+        }
+
+        function closeSidebar() {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        }
+
+        openBtn.addEventListener("click", openSidebar);
+        closeBtn.addEventListener("click", closeSidebar);
+        overlay.addEventListener("click", closeSidebar);
+
+        // Espera carregar tudo antes de criar o grafico
+        document.addEventListener('DOMContentLoaded', function () {
+            const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'];
+
+            const data = {
+                labels: labels,
+                datasets: [{
+                    label: 'Faturamento',
+                    data: [65, 59, 80, 81, 56, 55, 40],
+                    fill: false,
+                    borderColor: 'rgb(75, 192, 192)',
+                    tension: 0.1
+                }]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+            };
+
+            const myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        });
+    </script>
+
+    <footer class="bg-[#FDD223] p-[8px] text-center">
+        <p class="text-[#9A252A] text-xl sm:text-2xl font-bold border-b-2 border-[#9A252A] inline-block ">2025 Copyright: Grupo 1©</p>
+    </footer>
+</body>
+</html>

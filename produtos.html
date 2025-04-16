@@ -1,0 +1,181 @@
+<!DOCTYPE html> 
+<html lang="pt-br"> 
+
+<head>
+    <meta charset="UTF-8"> <!-- Libera o uso de caracteres -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- site responsivo -->
+    <title>Baff's</title> <!-- Título que aparece na aba do navegador -->
+    
+    
+    <link rel="icon" type="image/png" href="img/Design-sem-nome-1-3.webp">
+    
+    <!-- Framework Tailwind CSS para estilizar mais fácil -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+   
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans&display=swap" rel="stylesheet">
+    
+    <!-- Estilo CSS próprio -->
+    <link rel="stylesheet" href="styles/style.css">
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    
+    
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <style>
+        body {
+            font-family: 'Droid Sans', sans-serif; 
+        }
+    </style>
+</head>
+
+<body class="">
+
+  <!-- Fundo escuro que aparece quando o menu abre (deix a tela desfocada) -->
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden transition-opacity z-30"></div>
+
+  <!-- Cabeçalho com botão de menu, pesquisa e logo -->
+  <div class="bg-[#9A252A] h-[70px] flex items-center justify-between p-4 sm:p-12">
+      <!-- Botão que abre o menu lateral do site -->
+      <button id="openBtn" class="text-[#FDD223] cursor-pointer">
+          <i class="bi bi-list text-4xl sm:text-5xl"></i>
+      </button>
+
+      <!-- Menu lateral escondido -->
+      <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-[#9A252A] shadow-lg -translate-x-full transition-transform duration-300 ease-in-out z-40 p-5">
+          <button id="closeBtn" class="absolute top-4 right-4 text-white">&times;</button> <!-- Botão pra fechar -->
+          <img src="img/Design-sem-nome-1-3.webp" alt=""> <!-- Logo -->
+          <ul>
+              <!-- links do menu -->
+              <li><a href="index.html" class="text-[#FDD223] block p-2 hover:text-white font-bold">DASHBOARD</a></li>
+              <li><a href="clientes.html" class="text-[#FDD223] block p-2 hover:text-white font-bold">CLIENTES</a></li>
+              <li><a href="produtos.html" class="text-[#FDD223] block p-2 hover:text-white font-bold">PRODUTOS</a></li>
+              <li><a href="relatório.html" class="text-[#FDD223] block p-2 hover:text-white font-bold">RELATÓRIO</a></li>
+              <li><a href="avaliacoes.html" class="text-[#FDD223] block p-2 hover:text-white font-bold">AVALIAÇÕES</a></li>
+          </ul>
+      </div>
+
+      <!-- Botão de pesquisa-->
+      <input type="text" placeholder="PESQUISAR" class="sm:block w-[60%] h-[40px] rounded-md bg-[#FDD223] p-3 text-[#9A252A] placeholder:font-bold">
+
+      <!-- Imagem no canto direito (logo ou botão) -->
+      <a href=""><img class="h-[40px] sm:h-[55px]" src="img/Group 28.png" alt=""></a>
+  </div>
+  
+  <!-- Título da página -->
+  <div class="mb-12 mt-12">
+      <h1 class="text-[48px] font-bold text-[#9A252A] text-center">PRODUTOS</h1>
+  </div>
+
+  <!-- Sessão com os cards dos produtos -->
+  <div class="flex flex-wrap justify-center px-10 gap-20 sm:pb-[100px] sm:mx-20">
+
+      <!-- Cada bloco representa um produto no site -->
+      <div class="...">
+        <div class="text-center">
+          <img src="img/coxinha.png" alt="" class="...">
+          <h1 class="...">MINI COXINHA</h1>
+        </div>
+      </div>
+
+
+      <div class="...">
+        <div class="text-center">
+          <img src="img/pao de queijo.png" alt="" class="...">
+          <h1 class="...">PÃO DE QUEIJO</h1>
+        </div>
+      </div>
+
+     
+      <div class="...">
+        <div class="text-center">
+          <img src="img/empada.png" alt="" class="...">
+          <h1 class="...">EMPADA</h1>
+        </div>
+      </div>
+
+      
+      <div class="...">
+        <div class="text-center">
+          <img src="img/churros.png" alt="" class="...">
+          <h1 class="...">CHURROS</h1>
+        </div>
+      </div>
+
+      
+      <div class="...">
+        <div class="text-center">
+          <img src="img/limão.png" alt="" class="...">
+          <h1 class="...">MOUSSE DE LIMÃO</h1>
+        </div>
+      </div>
+
+      
+      <div class="...">
+        <div class="text-center">
+          <img src="img/donuts.png" alt="" class="...">
+          <h1 class="...">DONUTS</h1>
+        </div>
+      </div>
+
+  </div>
+
+  <script>
+      const sidebar = document.getElementById("sidebar");
+      const overlay = document.getElementById("overlay");
+      const openBtn = document.getElementById("openBtn");
+      const closeBtn = document.getElementById("closeBtn");
+
+      
+      function openSidebar() {
+          sidebar.classList.remove("-translate-x-full");
+          overlay.classList.remove("hidden");
+      }
+
+      
+      function closeSidebar() {
+          sidebar.classList.add("-translate-x-full");
+          overlay.classList.add("hidden");
+      }
+
+      
+      openBtn.addEventListener("click", openSidebar);
+      closeBtn.addEventListener("click", closeSidebar);
+      overlay.addEventListener("click", closeSidebar);
+
+       
+      document.addEventListener('DOMContentLoaded', function () {
+          const labels = ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho', 'Julho'];
+
+          const data = {
+              labels: labels,
+              datasets: [{
+                  label: 'Faturamento',
+                  data: [65, 59, 80, 81, 56, 55, 40],
+                  borderColor: 'rgb(75, 192, 192)',
+                  tension: 0.1
+              }]
+          };
+
+          const config = {
+              type: 'line',
+              data: data,
+          };
+
+          const myChart = new Chart(
+              document.getElementById('myChart'),
+              config
+          );
+      });
+  </script>
+
+ 
+  <footer class="bg-[#FDD223] p-[8px] text-center mt-10">
+    <p class="text-[#9A252A] text-xl sm:text-2xl font-bold border-b-2 border-[#9A252A] inline-block ">
+      2025 Copyright: Grupo 1©
+    </p>
+  </footer>
+
+</body>
+</html>

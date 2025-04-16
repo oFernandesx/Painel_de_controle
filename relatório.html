@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Baff's</title>
+  <link rel="icon" type="image/png" href="img/Design-sem-nome-1-3.webp" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Droid+Sans&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Droid Sans', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="relative min-h-screen overflow-x-hidden">
+
+    <!-- Fundo mais escuro -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden transition-opacity z-30"></div>
+
+    <!-- Menu superior com botao de abrir o menu lateral -->
+    <div class="bg-[#9A252A] h-[70px] flex items-center justify-between p-4 sm:p-12">
+        <button id="openBtn" class="text-[#FDD223] cursor-pointer">
+            <i class="bi bi-list text-4xl sm:text-5xl"></i>
+        </button>
+
+        <!-- Menu lateral que desliza da esquerda -->
+        <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-[#9A252A] shadow-lg -translate-x-full transition-transform duration-300 ease-in-out z-40 p-5">
+            <!-- Botao de fechar o menu -->
+            <button id="closeBtn" class="absolute top-4 right-4 text-white">&times;</button>
+            <img src="img/Design-sem-nome-1-3.webp" alt="">
+            <ul>
+                <!-- Links do menu lateral -->
+                <li class="mb-2"><a href="index.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">DASHBOARD</a></li>
+                <li class="mb-2"><a href="clientes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">CLIENTES</a></li>
+                <li class="mb-2"><a href="produtos.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">PRODUTOS</a></li>
+                <li class="mb-2"><a href="relatório.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">RELATÓRIO</a></li>
+                <li class="mb-2"><a href="avaliacoes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">AVALIAÇÕES</a></li>
+            </ul>
+        </div>
+
+        <!-- Barra de pesquisa -->
+        <input type="text" placeholder="PESQUISAR" class="sm:block w-[60%] lg:w-[900px] h-[40px] border-none outline-none rounded-md bg-[#FDD223] p-3 text-[#9A252A] placeholder:text-[#9A252A] placeholder:border-none placeholder:font-bold">
+
+        <!-- Logo -->
+        <a href=""><img class="h-[40px] sm:h-[55px]" src="img/Group 28.png" alt=""></a>
+    </div>
+
+  <!-- Titulo principal da pagina -->
+  <div class="mt-10 mb-6 px-4">
+    <h1 class="text-[clamp(2rem,5vw,3rem)] font-bold text-[#9A252A] text-center">RELATÓRIO DE PEDIDOS</h1>
+  </div>
+
+    <!-- Layout em grid -->
+    <div class="px-4 sm:px-6 lg:px-10 grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10">
+      
+      <!-- div da esquerda -->
+      <div class="grid grid-rows-[1fr_auto] gap-10">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          
+          <!-- div de pedidos feitos -->
+          <div class="bg-[#FDD223] rounded-[15px] p-4 text-[#9A252A] shadow-md">
+            <div class="flex justify-center items-center">
+              <i class="bi bi-bag-check text-4xl sm:text-5xl"></i>
+              <h1 class="text-xl sm:text-2xl font-bold leading-tight p-2 text-center">TOTAL DE PEDIDOS</h1>
+            </div>
+            <div class="flex justify-center">
+              <h1 class="text-3xl sm:text-4xl font-bold text-[#780F14]">1.497</h1>
+            </div>
+          </div>
+
+          <!-- div do tempo medio das entregas -->
+          <div class="bg-[#FDD223] rounded-[15px] p-4 text-[#9A252A] shadow-md">
+            <div class="flex justify-center items-center">
+              <i class="bi bi-stopwatch-fill text-4xl sm:text-5xl"></i>
+              <h1 class="text-xl sm:text-2xl font-bold leading-tight p-2 text-center">TEMPO MÉDIO DE ENTREGA</h1>
+            </div>
+            <div class="flex justify-center">
+              <h1 class="text-3xl sm:text-4xl font-bold text-[#780F14]">25 MINUTOS</h1>
+            </div>
+          </div>
+        </div>
+
+        <!-- div com grafico de pizza -->
+        <div class="bg-[#FDD223] rounded-[15px] p-4 text-[#9A252A] shadow-md">
+          <h1 class="text-xl sm:text-2xl font-bold leading-tight text-center mb-4">PEDIDOS CONCLUÍDOS X CANCELADOS</h1>
+          <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-4">
+            <div class="flex justify-center">
+              <canvas id="myChart2" class="w-full w-50"></canvas>
+            </div>
+            <div>
+              <!-- Legenda das cores do grafico -->
+              <div class="flex items-center mb-4 gap-4">
+                <div class="bg-[#9A252A] h-6 w-6 rounded-full"></div>
+                <h1 class="text-[#9A252A] font-bold text-base sm:text-lg md:text-xl">PEDIDOS CONCLUÍDOS</h1>
+              </div>
+              <div class="flex items-center mb-4 gap-4">
+                <div class="bg-[#FFFFFF] h-6 w-6 rounded-full border border-gray-300"></div>
+                <h1 class="text-[#FFFFFF] font-bold text-base sm:text-lg md:text-xl">PEDIDOS CANCELADOS</h1>
+              </div>
+              <div class="flex items-center mb-4 gap-4">
+                <div class="bg-[#CA9B1F] h-6 w-6 rounded-full"></div>
+                <h1 class="text-[#CA9B1F] font-bold text-base sm:text-lg md:text-xl">PEDIDOS EM ANDAMENTO</h1>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- div da direita -->
+      <div class="grid gap-10">
+        
+        <!-- div de ticket medio por pedido por pedido -->
+        <div class="bg-[#FDD223] rounded-[15px] p-4 text-[#9A252A] shadow-md">
+          <div class="flex justify-center items-center">
+            <i class="bi bi-cash-stack text-4xl sm:text-5xl"></i>
+            <h1 class="text-xl sm:text-2xl font-bold leading-tight p-2 text-center">TICKET MÉDIO POR PEDIDO</h1>
+          </div>
+          <div class="flex justify-center">
+            <h1 class="text-3xl sm:text-4xl font-bold text-[#780F14]">R$15,00</h1>
+          </div>
+        </div>
+
+        <!-- div com os produtos mais vendidos -->
+        <div class="bg-[#FDD223] rounded-[15px] p-4 text-[#9A252A] shadow-md">
+          <div class="flex justify-center items-center">
+            <i class="bi bi-bag text-4xl sm:text-5xl"></i>
+            <h1 class="text-xl sm:text-2xl font-bold leading-tight p-2 text-center">MAIS VENDIDOS</h1>
+          </div>
+          <div class="grid gap-4 mt-6">
+            <h1 class="text-lg sm:text-xl font-bold">MINI COXINHA - 320 UNI.</h1>
+            <div class="w-full h-0.5 bg-[#9A252A]"></div>
+            <h1 class="text-lg sm:text-xl font-bold">MINI PÃO DE QUEIJO - 280 UNI.</h1>
+            <div class="w-full h-0.5 bg-[#9A252A]"></div>
+            <h1 class="text-lg sm:text-xl font-bold">EMPADA - 250 UNI.</h1>
+            <div class="w-full h-0.5 bg-[#9A252A]"></div>
+            <h1 class="text-lg sm:text-xl font-bold">MINI CHURROS - 190 UNI.</h1>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <!-- footer da pagina -->
+  <footer class="bg-[#FDD223] p-2 text-center mt-10">
+    <p class="text-[#9A252A] text-lg sm:text-xl font-bold border-b-2 border-[#9A252A] inline-block">2025 Copyright: Grupo 1©</p>
+  </footer>
+
+  <!-- script que abre e fecha o menu -->
+  <script>
+    const sidebar = document.getElementById("sidebar");
+    const overlay = document.getElementById("overlay");
+    const openBtn = document.getElementById("openBtn");
+    const closeBtn = document.getElementById("closeBtn");
+
+    // botao de abrir o menu
+    openBtn.addEventListener("click", () => {
+      sidebar.classList.remove("-translate-x-full");
+      overlay.classList.remove("hidden");
+    });
+
+    // botao de fechar o menu
+    closeBtn.addEventListener("click", () => {
+      sidebar.classList.add("-translate-x-full");
+      overlay.classList.add("hidden");
+    });
+
+    // configuração do gráfico
+    const ctx = document.getElementById("myChart2").getContext("2d");
+    new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ['Concluídos', 'Cancelados', 'Em Andamento'],
+        datasets: [{
+          data: [100000, 17438, 10000],
+          backgroundColor: ['#780F14', '#FCFFFF', '#D8B421'],
+          borderWidth: 0
+        }]
+      },
+      options: {
+        responsive: true,
+        plugins: {
+          legend: {
+            position: 'bottom',
+            labels: {
+              color: '#9A252A',
+              font: { weight: 'bold' }
+            }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Baff's</title>
+    <link rel="icon" type="image/png" href="img/Design-sem-nome-1-3.webp" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Droid+Sans&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles/style.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <!-- Forcando o tamanho do grafico -->
+    <style>
+        body {
+            font-family: 'Droid Sans', sans-serif;
+        }
+
+        canvas {
+            width: 100% !important;
+            height: auto !important;
+        }
+    </style>
+</head>
+
+<body class="relative min-h-screen">
+    <!--  -->
+    <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm hidden transition-opacity z-30"></div>
+
+    <!-- Side bar -->
+    <div class="bg-[#9A252A] h-[70px] flex items-center justify-between p-4 sm:p-12">
+        <button id="openBtn" class="text-[#FDD223] cursor-pointer">
+            <i class="bi bi-list text-4xl sm:text-5xl"></i>
+        </button>
+
+        <div id="sidebar" class="fixed top-0 left-0 h-full w-64 bg-[#9A252A] shadow-lg -translate-x-full transition-transform duration-300 ease-in-out z-40 p-5">
+            <button id="closeBtn" class="absolute top-4 right-4 text-white">&times;</button>
+            <img src="img/Design-sem-nome-1-3.webp" alt="">
+            <ul>
+                <li class="mb-2"><a href="index.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">DASHBOARD</a></li>
+                <li class="mb-2"><a href="clientes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">CLIENTES</a></li>
+                <li class="mb-2"><a href="produtos.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">PRODUTOS</a></li>
+                <li class="mb-2"><a href="relatório.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">RELATÓRIO</a></li>
+                <li class="mb-2"><a href="avaliacoes.html" class="text-[#FDD223] block p-2 hover:text-white rounded font-bold">AVALIAÇÕES</a></li>
+            </ul>
+        </div>
+
+        <input type="text" placeholder="PESQUISAR" class="sm:block w-[60%] lg:w-[900px] h-[40px] border-none outline-none rounded-md bg-[#FDD223] p-3 text-[#9A252A] placeholder:text-[#9A252A] placeholder:border-none placeholder:font-bold">
+
+        <a href=""><img class="h-[40px] sm:h-[55px]" src="img/Group 28.png" alt=""></a>
+    </div>
+
+    <!-- Titulo -->
+    <div class="mb-6 mt-12">
+        <h1 class="text-[36px] sm:text-[48px] font-bold text-[#9A252A] text-center">DASHBOARD</h1>
+    </div>
+
+   <!-- Container dos grids -->
+    <div class="gap-16 p-4 sm:p-10 grid grid-cols-[1fr] xl:grid-cols-[2fr_1fr] md:p-10 grid grid-cols-2 ">
+        <div class="grid gap-6 xl:grid-cols-1 ">
+            
+            <div class="bg-[#FDD223] rounded-[15px] p-4 text-[#9A252A]" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+                <div class="flex justify-center items-center">
+                    <i class="bi bi-cash-coin text-4xl sm:text-6xl"></i>
+                    <h1 class="text-xl sm:text-3xl font-bold p-2">TOTAL DE VENDAS</h1>
+                </div>
+                <div class="flex justify-center">
+                    <h1 class="text-3xl sm:text-4xl font-bold text-[#780F14]">127.438</h1>
+                </div>
+            </div>
+
+           
+            <div class="bg-[#FDD223] rounded-[15px] p-4 text-[#9A252A]" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+                <div class="flex justify-center items-center">
+                    <i class="bi bi-sort-up text-4xl sm:text-6xl"></i>
+                    <h1 class="text-xl sm:text-3xl font-bold p-2">FATURAMENTO</h1>
+                </div>
+                <div class="flex justify-center">
+                    <h1 class="text-3xl sm:text-4xl font-black text-[#780F14]">R$ 1.781.534,27</h1>
+                </div>
+            </div>
+
+            
+            <div class="col-span-1 xl:col-span-2 bg-[#FDD223] rounded-[15px] text-[#9A252A] p-5 flex justify-center"
+                style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+                <div class="w-full text-center">
+                    <h1 class="text-xl sm:text-3xl font-bold pb-5">FATURAMENTO ANUAL</h1>
+                    <div class="w-full h-[300px]">
+                        <canvas id="myChart" class="w-full h-full"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        
+        <div class="bg-[#FDD223] rounded-[15px] text-[#9A252A] p-5" style="box-shadow: 7px 7px 9.2px rgba(0, 0, 0, 0.3);">
+            <div class="flex justify-center items-center mb-4">
+                <i class="bi bi-bag text-4xl sm:text-6xl mr-4"></i>
+                <h1 class="text-xl sm:text-4xl font-bold">COMPRAS RECENTES</h1>
+            </div>
+            <div class="grid grid-cols-1 gap-4">
+                <h1 class="text-xl sm:text-4xl font-bold">- R$57,92</h1>
+                <div class="w-full h-0.5 bg-[#9A252A] rounded-xl"></div>
+                <h1 class="text-xl sm:text-4xl font-bold">- R$2,50</h1>
+                <div class="w-full h-0.5 bg-[#9A252A] rounded-xl"></div>
+                <h1 class="text-xl sm:text-4xl font-bold">- R$22,00</h1>
+                <div class="w-full h-0.5 bg-[#9A252A] rounded-xl"></div>
+                <h1 class="text-xl sm:text-4xl font-bold">- R$13,20</h1>
+                <div class="w-full h-0.5 bg-[#9A252A] rounded-xl"></div>
+                <h1 class="text-xl sm:text-4xl font-bold">- R$62,90</h1>
+                <div class="w-full h-0.5 bg-[#9A252A] rounded-xl"></div>
+                <h1 class="text-xl sm:text-4xl font-bold">- R$10,00</h1>
+                <div class="w-full h-0.5 bg-[#9A252A] rounded-xl"></div>
+                <h1 class="text-xl sm:text-4xl font-bold">- R$17,10</h1>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script da side bar -->
+    <script>
+        const sidebar = document.getElementById("sidebar");
+        const overlay = document.getElementById("overlay");
+        const openBtn = document.getElementById("openBtn");
+        const closeBtn = document.getElementById("closeBtn");
+
+        openBtn.addEventListener("click", () => {
+            sidebar.classList.remove("-translate-x-full");
+            overlay.classList.remove("hidden");
+        });
+
+        closeBtn.addEventListener("click", () => {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        });
+
+        overlay.addEventListener("click", () => {
+            sidebar.classList.add("-translate-x-full");
+            overlay.classList.add("hidden");
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const ctx = document.getElementById('myChart').getContext('2d');
+            const labels = ['JAN', 'FEV', 'MAR', 'ABR', 'MAI', 'JUN', 'JUL', 'AGO', 'SET', 'OUT', 'NOV', 'DEZ'];
+
+            const dataRed = {
+                label: 'Faturamento (R$)',
+                data: [100000, 200000, 800000, 100000, 500000, 1000000, 100000, 500000, 300000, 400000, 700000, 500000],
+                borderColor: 'red',
+                borderWidth: 2,
+                fill: false,
+                tension: 0
+            };
+
+            const dataGreen = {
+                label: 'Outra Linha',
+                data: [500000, 100000, 400000, 1000000, 500000, 100000, 800000, 1500000, 1000000, 900000, 1000000, 1400000],
+                borderColor: 'green',
+                borderWidth: 2,
+                fill: false,
+                tension: 0
+            };
+
+            const data = {
+                labels: labels,
+                datasets: [dataRed, dataGreen]
+            };
+
+            const config = {
+                type: 'line',
+                data: data,
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+                            ticks: {
+                                callback: function (value) {
+                                    return value.toLocaleString('pt-BR');
+                                }
+                            },
+                            title: {
+                                display: true,
+                                text: 'Valores'
+                            }
+                        },
+                        x: {
+                            title: {
+                                display: true,
+                                text: 'Meses'
+                            }
+                        }
+                    },
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            };
+
+            new Chart(ctx, config);
+        });
+    </script>
+
+    <!-- Footer -->
+    <footer class="bg-[#FDD223] p-2 text-center">
+        <p class="text-[#9A252A] text-xl font-bold border-b-2 border-[#9A252A] inline-block">2025 Copyright: Grupo 1©</p>
+    </footer>
+</body>
+</html>
